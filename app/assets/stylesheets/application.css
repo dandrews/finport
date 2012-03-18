@@ -5,3 +5,50 @@
  *= require_self
  *= require_tree . 
 */
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+.headline {
+    font-weight:bold;
+}
+
+.source a {
+    color: #996600;
+}
+
+.mute {
+    color: #727272;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    display: inline;
+    list-style-type: none;
+}
+
+ul li a {
+    display: block;
+    float: left;
+    padding: 0 .25em;
+}
+
+.engine {
+    text-align: center;
+}
+
+a.feedback-ok {
+    color: green;
+}
+
+a.feedback-remove {
+    color: red;
+}
+
+.read-more-text {
+    display: none;
+}
