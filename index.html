@@ -6,8 +6,7 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript" src="js/timeago.js"></script>    
-    <script type="text/javascript" src="js/article.js"></script>
-    <script type="text/javascript" src="js/refresh.js"></script>    
+    <script type="text/javascript" src="js/refresh.js"></script>
     <link href="css/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="css/fontawesome/css/font-awesome.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">        
@@ -111,14 +110,14 @@
         </div>
 
         <div class="span6">
-	      
-          <div id="feature" class="hero-unit">
+
+          <div id="feature" class="hero-unit" data-current=".article-container-0">
 
 	        <div class="row">
 	          <div class="pull-left">
-		        <a href="#next">&laquo; Back</a>
+		        <a href="#back" id="prev_article">&laquo; Back</a>
 	          </div>
-	          
+
 	          <div class="pull-right">
 		        <a href="#next" id="next_article">Next &raquo;</a>
 	          </div>
@@ -303,6 +302,9 @@
       <div id="next-page-more-text">
         In hac habitasse platea dictumst. Cras vehicula, nibh eget auctor porta, purus ipsum iaculis dolor, eu convallis velit felis a lectus. Suspendisse eu volutpat nunc. Fusce ligula magna, vestibulum a vulputate nec, congue sed lacus. Praesent quis lectus augue, id fringilla lectus. Integer ut quam in est adipiscing pharetra in et quam. Duis tempus felis quis sapien aliquet tristique dapibus felis tincidunt. Sed arcu risus, consectetur adipiscing lacinia vitae, volutpat non nisl. Aliquam luctus ornare nunc, sit amet bibendum ligula sodales nec. Nunc bibendum orci ac diam ornare ut sagittis tellus lobortis. Etiam vitae purus purus. Nam eu orci mauris. Praesent interdum magna suscipit neque euismod rutrum. Cras sagittis purus id nulla dignissim a blandit sapien ullamcorper.
       </div>
+    </div>
+
+    <div class="article">
     </div>
     
   </body>
