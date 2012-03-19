@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FinPort beta</title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "https://www.google.com/jsapi" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "refresh" %>
+  <%= javascript_include_tag "timeago" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= params[:controller] %>">
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <span class="icon-bar"></span>
+        <a class="brand" href="#">FinPort</a>
+        <ul class="nav">
+          <li class="active">
+            <%= link_to root_url do %>
+              <i class="icon-home icon-white"></i> Home
+            <% end %>
+          </li>
+          <li><a class="" href="#/trends"><i class="icon-bar-chart icon-white"></i> Trends</a>            
+          <li><a class="" href="#/help"><i class="icon-info-sign icon-white"></i> Help</a>              
+        </ul>
+        <div class="pull-right">
+          <ul class="nav">
+            <% if !current_user %>
+              <li><%= link_to "Sign-up", signup_path %></li>
+              <li><%= link_to "Login", login_path %></li>
+            <% else %>
+              <li><%= link_to "Logout", logout_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>  <!-- end navbar -->
+
+  <div class="container">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+  </div>
+
+  <%= yield %>
+
+</body>
+</html>

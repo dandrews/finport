@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>FinPort beta</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="js/timeago.js"></script>    
+    <script type="text/javascript">
+    google.load("feeds", "1");
+
+    function showRSS(str) {
+      var feed = new google.feeds.Feed("http://finance.yahoo.com/rss/headline?s="+str);
+      feed.setNumEntries(10);
+
+
+      $("table").filter(".article").remove();
+      $("#tags li").removeClass("active");
+      $("#tags").prepend($("<li></li>").append( $('<a></a>').attr('href','#')
+                                                            .text(str))
+                                       .addClass("active"));
+
+      if ($("#rssOutput ul").length == 0) {
+          $("#rssOutput").prepend( $("<ul></ul>").addClass( "nav nav-pills" ).append( $("<li></li>").addClass("active")
+    	                                                                                            .append( $("<a></a>").attr("href","#/recent")
+	                                                                                                                 .text("recent")))
+                                                                	     .append( $("<li></li>").append( $("<a></a>").attr("href","#/archived")
+	                                                                                                                 .text("archived"))));
+      }    
+
+        feed.load(function(result) {
+        if (!result.error) {
+
+          for (var i = 0; i < result.feed.entries.length; i++) {
+            var entry = result.feed.entries[i];
+
+            var table = $("<table></table>").addClass("article table table-bordered");
+            var body = $("<tbody></tbody>");                              
+            var row = $("<tr></tr>");
+            var col = $("<td></td>");
+
+            var article = $("<div></div>").addClass("article-container");
+            var title = $("<div></div>").addClass("title");
+            title.text(entry.title)
+                 .css('font-weight','bold');
+            article.append(title);
+
+            var pub = $("<div></div>").addClass("mute");
+            pub.append($("<small></small>").text( jQuery.timeago( entry.publishedDate ) ) );
+            article.append(pub);
+                              
+            var snip = $("<div></div>").addClass("snip");
+            snip.append($("<small></small>").text(entry.contentSnippet));
+            article.append(snip);
+
+            var link = $("<div></div>").addClass("link");
+            link.append( $("<a></a>").attr('href',entry.link)
+                                     .html('read more &raquo;') );
+            article.append(link);
+
+            var feedback = $("<ul></ul>").addClass("feedback");                  
+            feedback.append( $("<li></li>").append( $("<a></a>").html( $("<i></i>").addClass("icon-ok icon-white"))
+			                                        .attr('href',"#/ok")
+                                                                .addClass("feedback-ok")));
+            feedback.append( $("<li></li>").append( $("<a></a>").html( $("<i></i>").addClass("icon-remove icon-white"))
+      			                                        .attr('href',"#/remove")
+                                                                .addClass("feedback-remove")));
+            feedback.append( $("<li></li>").append( $("<a></a>").html( $("<i></i>").addClass("icon-comments icon-white"))
+			                                        .attr('href',"#/comments")			      
+                                                                .addClass("feedback-comments")));
+                              
+            feedback.append( $("<li></li>").append( $("<a></a>").html( $("<i></i>").addClass("icon-tags icon-white"))
+			                                        .attr('href',"#/tags")			      			      
+                                                                .addClass("feedback-tags")));
+
+            feedback.append( $("<li></li>").append( $("<a></a>").html( $("<i></i>").addClass("icon-check icon-white"))
+			                                        .attr('href',"#/share")			      			      			      
+                                                                .addClass("feedback-save")));
+	      
+            feedback.append( $("<li></li>").append( $("<a></a>").html( $("<i></i>").addClass("icon-share icon-white"))
+			                                        .attr('href',"#/share")			      			      			      
+                                                                .addClass("feedback-share")));
+
+            article.append(feedback);
+                              
+            col.append(article);                  
+            row.append(col);
+            body.append(row)                              
+            table.append(body);
+            $("#rssOutput").append(table);
+          }
+        }
+      });
+    }
+    </script>    
+    <link href="css/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="css/fontawesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">        
+    <style type="text/css">
+      body {
+      padding-top: 60px;
+      padding-bottom: 40px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <span class="icon-bar"></span>
+          <a class="brand" href="#">FinPort</a>
+          <ul class="nav">
+            <li class="active"><a href="#/home"><i class="icon-home icon-large icon-white"></i> Home</a></li>
+            <li><a class="" href="#/trends"><i class="icon-bar-chart icon-large icon-white"></i> Trends</a>            
+            <li><a class="" href="#/help"><i class="icon-info-sign icon-large icon-white"></i> Help</a>              
+          </ul>
+          <div class="pull-right">
+            <ul class="nav">
+              <li><a href="#/logout">Logout <i class="icon-signout icon-large icon-white"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>  <!-- end navbar -->
+
+    <div class="container">
+      
+      <div class="row">
+        <div class="span3">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td>
+
+		  <div class="input-prepend">
+		    <span class="add-on"><h4><i class="icon-user icon-large"></i></h4></span>
+		    <input class="span2" id="prependedInput" size="16" type="text" placeholder="your username">
+		  </div>
+<!--		  
+                </td>
+              </tr>
+              <tr>
+                <td> -->
+                  <h4>Your Stats</h4>
+                  <div><i class="icon-eye-open"></i> read</div>
+                  <div><i class="icon-thumbs-up"></i> liked</div>
+                  <div><i class="icon-comments"></i> comments</div>
+                </td>
+              </tr>  
+              <tr>
+                <td>
+                  <h4>Connections</h4>
+                  <div><i class="icon-facebook-sign icon-large"></i><a href="#/facebook"> Facebook</a></div>
+                  <div><i class="icon-twitter-sign icon-large"></i><a href="#/twitter"> Twitter</a></div>
+                  <div><i class="icon-linkedin-sign icon-large"></i><a href="#/linkedin"> LinkedIn</a></div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+		  <p class="help-block"> Enter a Stock Ticker, Company, or Industry</p>
+
+		  <div class="input-prepend">
+                    <form class="form-search" onsubmit="showRSS(this.term.value); return false;">		  		      
+		      <span class="add-on"><h4><i class="icon-search icon-large"></i></h4></span>
+		      <input class="span2" name="term" id="prependedSearch" size="16" type="text" placeholder="search">
+
+		    </form>
+		  </div>		  
+		  
+		  <!--
+                  <form class="form-search" onsubmit="showRSS(this.term.value); return false;">                    
+                    <input type="text" name="term" class="input-small search-query">
+                    <button type="submit" class="btn-mini"><i class="icon-search"></i> Search</button>
+                  </form>
+		  -->
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4>Feeds / Tags</h4>
+                  <!--<div id="tags"></div>-->
+		  <!--
+                  <ul id="tags" class="nav nav-pills nav-stacked"></ul>
+		  -->
+                  <ul id="tags" class="nav nav-pills"></ul>		  
+                  <a href="#/all-feeds">view all</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td>
+                  <!--footer-->
+	          <h4>FinPort</h4>
+                  <div class="module site-footer">
+                    <ul class="clearfix">
+                      <li class="copyright"><h5>&copy; 2012 FinPort</h5></li>
+                      <li><a href="#/about">About</a></li>
+                      <li><a href="#/support">Help</a></li>
+                      <li><a href="#/tos">Terms</a></li>
+                      <li><a href="#/privacy">Privacy</a></li>
+                      <li><a href="#/blog">Blog</a></li>
+                      <li><a href="#/media">Media</a></li>
+                      <li><a href="#/advertisers">Advertisers</a></li>
+                      <li><a href="#/jobs">Jobs</a></li>
+                    </ul>
+                  </div>
+                  <!-- end article-->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="span6">
+          <div id="feature" class="hero-unit">
+            <h2 class="feature-headline">Featured Article Headline Here</h2>
+            <div class="feature-source">
+              <a href="#" >source.com</a>
+            </div>
+            <div class="mute">
+              By Edit Staff | Mar. 11, 2012, 7:00pm PT
+            </div>
+            <div class="feature-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nunc nunc, congue et euismod a, feugiat et magna. Cras laoreet tortor nec dolor euismod in aliquam risus gravida. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas ipsum urna, feugiat quis varius eu, aliquet in tortor.
+	      <a href="#/more">read more &raquo;</a>
+            </div>
+	    
+	    <ul class="share">
+              <li><a href="#" ><i class="icon-check"></i> save</a></li>
+              <li><a href="#" ><i class="icon-share"></i> share</a></li>	      
+	      <li><a href="#" ><i class="icon-fire"></i> trending in [tag1], [tag2] and [tag3]</a></li>
+            </ul>
+	    
+          </div> <!-- end hero-unit -->
+	  <!--
+          <ul class="nav nav-pills">            
+            <li class="active"><a href="#home">recent</a></li>
+            <li><a href="#/archives">archived</a></li>
+            <li><a href="#/refresh">refresh</a></li>
+          </ul>
+	  -->
+          <div id="rssOutput"></div>
+        </div> <!-- end span6 -->
+        <div class="span3">
+	  
+          <table class="table table-bordered">
+            <tbody>
+	      <tr>
+                <td>
+                  <div class="engine">
+		    <h3><i class="icon-cogs icon-large"></i>  FinPort A.I.</h3>		    
+                  </div>
+                </td>
+	      </tr>
+	      <tr>
+                <td>
+                  <div class="engine">		  
+                    <h4>You Might Like</h4>
+		    <h5>&laquo; Suggested Article 1 &raquo;</h5>
+		  </div>
+                </td>
+	      </tr>  
+            </tbody>
+          </table>
+	  
+        </div> <!-- end span3 -->
+      </div>  <!-- end row -->
+      
+    </div> <!--end container-->
+
+  </body>
+</html>
+    
