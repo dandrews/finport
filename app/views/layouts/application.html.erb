@@ -16,24 +16,35 @@
         <span class="icon-bar"></span>
         <a class="brand" href="#">FinPort</a>
         <ul class="nav">
-          <li class="active"><a href="#/home"><i class="icon-home icon-large icon-white"></i> Home</a></li>
-          <li><a class="" href="#/trends"><i class="icon-bar-chart icon-large icon-white"></i> Trends</a>            
-          <li><a class="" href="#/help"><i class="icon-info-sign icon-large icon-white"></i> Help</a>              
+          <li class="active">
+            <%= link_to root_url do %>
+              <i class="icon-home icon-white"></i> Home
+            <% end %>
+          </li>
+          <li><a class="" href="#/trends"><i class="icon-bar-chart icon-white"></i> Trends</a>            
+          <li><a class="" href="#/help"><i class="icon-info-sign icon-white"></i> Help</a>              
         </ul>
         <div class="pull-right">
           <ul class="nav">
-            <li><a href="#/logout">Logout <i class="icon-signout icon-large icon-white"></i></a></li>
+            <% if !current_user %>
+              <li><%= link_to "Sign-up", signup_path %></li>
+              <li><%= link_to "Login", login_path %></li>
+            <% else %>
+              <li><%= link_to "Logout", logout_path %></li>
+            <% end %>
           </ul>
         </div>
       </div>
     </div>
   </div>  <!-- end navbar -->
 
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
-  <% end %>
+  <div class="container">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+  </div>
 
   <%= yield %>
-  
+
 </body>
 </html>

@@ -32,7 +32,11 @@
         <tbody>
         <tr>
         <td>
-          "your username"
+          <% if current_user %>
+            <%= current_user.email %>
+          <% else %>
+            Please login
+          <% end %>
         </td>
         </tr>
           <tr>

@@ -53,3 +53,8 @@ a.feedback-remove {
 .read-more-text {
     display: none;
 }
+#flash_notice {
+    background:#FFEFC6;
+    padding:10px;
+    margin:10px 0;
+}
