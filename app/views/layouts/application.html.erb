@@ -10,11 +10,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= params[:controller] %>">
-  <div id="container">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
-    <%= yield %>
-  </div>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <span class="icon-bar"></span>
+        <a class="brand" href="#">FinPort</a>
+        <ul class="nav">
+          <li class="active"><a href="#/home"><i class="icon-home icon-large icon-white"></i> Home</a></li>
+          <li><a class="" href="#/trends"><i class="icon-bar-chart icon-large icon-white"></i> Trends</a>            
+          <li><a class="" href="#/help"><i class="icon-info-sign icon-large icon-white"></i> Help</a>              
+        </ul>
+        <div class="pull-right">
+          <ul class="nav">
+            <li><a href="#/logout">Logout <i class="icon-signout icon-large icon-white"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>  <!-- end navbar -->
+
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+
+  <%= yield %>
+  
 </body>
 </html>
