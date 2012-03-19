@@ -1,0 +1,60 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require 'font-awesome'
+ *= require_tree . 
+*/
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+.headline {
+    font-weight:bold;
+}
+
+.source a {
+    color: #996600;
+}
+
+.mute {
+    color: #727272;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    display: inline;
+    list-style-type: none;
+}
+
+ul li a {
+    display: block;
+    float: left;
+    padding: 0 .25em;
+}
+
+.engine {
+    text-align: center;
+}
+
+a.feedback-ok {
+    color: green;
+}
+
+a.feedback-remove {
+    color: red;
+}
+
+.read-more-text {
+    display: none;
+}
+#flash_notice {
+    background:#FFEFC6;
+    padding:10px;
+    margin:10px 0;
+}
