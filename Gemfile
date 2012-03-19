@@ -31,7 +31,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'twitter-bootstrap-rails'
 
-gem "font-awesome-sass-rails", "~> 0.1.0"
+gem "font-awesome-rails"
 
 # Use unicorn as the web server
 # gem 'unicorn'
