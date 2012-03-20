@@ -16,7 +16,12 @@ function loadRSS(a) {
             $(".feature-text").find("span").text(h.find(".snip").text()), $(".headline").text(h.find(".title").text()), $(".article").hide()
         }
     }), $(".tags li").removeClass("active"), $(".tags").prepend($("<li></li>").append($("<a></a>").attr("onClick", 'loadRSS("GOOG"); return false;').text(a)).attr("name", a).addClass("active"))
-}
+};
+
+function get_hostname(url) {
+  var m = ((url||'')+'').match(/^http:\/\/[^/]+/);
+  return m ? m[0] : null;
+};
 
 google.load("feeds", "1");
 $(document).ready(function(){
@@ -41,9 +46,12 @@ $(document).ready(function(){
                        article.append(link);
                        $(".article").append(article);
                    }
-                   var firstArticle = $('.article-container-0')
+                   var firstArticle = $('.article-container-0');
+                   var source = firstArticle.find("a").attr("href");
                    $('.feature-text').find('span').text(firstArticle.find('.snip').text());
                    $('.headline').text(firstArticle.find('.title').text());
+                   $(".source a").attr("href", source);
+                   $(".source a").text(get_hostname(source));
                    $(".article").hide();
                }
            });
@@ -70,8 +78,11 @@ $(function() {
 
     var title = nextElement.find(".title").text();
     var content = nextElement.find(".snip").text();
+    var source = nextElement.find("a").attr("href");
     $(".headline").text(title);
     $(".feature-text").find("span").text(content);
+    $(".source a").attr("href", source);
+    $(".source a").text(get_hostname(source));
   });
 
   $("#prev_article").on("click", function() {
@@ -85,8 +96,11 @@ $(function() {
 
     var title = prevElement.find(".title").text();
     var content = prevElement.find(".snip").text();
+    var source = prevElement.find("a").attr("href");
     $(".headline").text(title);
     $(".feature-text").find("span").text(content);
+    $(".source a").attr("href", source);
+    $(".source a").text(get_hostname(source));
   });
 });
 
