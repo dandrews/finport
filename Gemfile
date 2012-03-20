@@ -11,7 +11,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'newrelic_rpm'
 end
 
 # Gems used only for assets and not required
@@ -23,8 +22,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
-gem 'therubyracer', :platform => :ruby
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
