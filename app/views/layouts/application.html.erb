@@ -17,7 +17,7 @@
         <a class="brand" href="#">FinPort</a>
         <ul class="nav">
           <li class="active">
-            <%= link_to current_user ? home_news_feed_path : root_url do %>
+            <%= link_to current_user ? news_feed_path : root_url do %>
               <i class="icon-home icon-white"></i> Home
             <% end %>
           </li>
