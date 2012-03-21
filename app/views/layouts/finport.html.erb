@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FinPort Beta</title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "https://www.google.com/jsapi" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <style type="text/css">
+      body {
+      padding-top: 60px;
+      padding-bottom: 40px;
+      }
+    </style>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-30176631-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>    
+  </head>
+  <body class="<%= params[:controller] %>">    
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">FinPort</a>
+          <ul class="nav">
+            <li class="active">
+            <%= link_to root_url do %>
+            <i class="icon-home icon-white"></i> Home
+            <% end %>
+            </li>
+          </ul>
+          <div class="pull-right">
+            <ul class="nav">
+              <li><%= link_to "Login", login_path %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <%= yield %>
+    
+    <!--
+    <div rel="0FPVYWTV" class="lrdiscoverwidget" data-logo="on" data-background="on" data-share-url="ofeedia.com" data-css="">
+    </div>
+    <script type="text/javascript" src="http://launchrock-ignition.s3.amazonaws.com/ignition.1.1.js">
+    </script>
+    -->
+  </body>
+</html>

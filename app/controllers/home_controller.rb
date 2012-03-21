@@ -6,6 +6,10 @@ class HomeController < ApplicationController
     def alt_index
     end
 
+    def finport
+      render :layout => 'finport'
+    end
+    
     def ofeedia
     end
     
