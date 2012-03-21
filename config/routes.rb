@@ -2,7 +2,7 @@ Listrhino::Application.routes.draw do
 
   root :to => "home#index"
   match "/home/alt_index" => "home#alt_index"
-  match "/home/finport" => "home#finport"    
+  match "/home/news_feed" => "home#news_feed"
   match "/home/ofeedia" => "home#ofeedia"
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"

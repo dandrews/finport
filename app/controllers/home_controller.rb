@@ -1,16 +1,15 @@
 class HomeController < ApplicationController
+  def index
+    render :layout => 'finport'
+  end
 
-    def index
-    end
+  def alt_index
+  end
 
-    def alt_index
-    end
+  def news_feed
+    redirect_to root_url unless current_user
+  end
 
-    def finport
-      render :layout => 'finport'
-    end
-    
-    def ofeedia
-    end
-    
+  def ofeedia
+  end
 end
