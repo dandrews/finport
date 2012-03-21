@@ -1,0 +1,168 @@
+.container
+  .row
+    .span3
+      %table.table.table-bordered
+        %tbody
+          %tr
+            %td
+              Relevant - Insightful - Empowering
+      %table.table.table-bordered
+        %tbody
+          %tr
+            %td
+              %form.form-horizontal
+                %select.span2
+                  %option standard
+                  %option research
+      %table.table.table-bordered
+        %tbody
+          %tr
+            %td
+              - if current_user
+                = current_user.email
+              - else
+                Please login
+          %tr
+            %td
+              .input-prepend
+                %form.form-search{:onsubmit => "loadRSS(this.term.value); return false;"}
+                  %span.add-on
+                    %h4
+                      %i.icon-search.icon-large
+                  %input#prependedSearch.span2{:name => "term", :placeholder => "enter stock ticker:", :size => "16", :type => "text"}
+                %ul.tags
+          %tr
+            %td
+              %h4 Status
+          %tr
+            %td
+              %h4 Social Index
+              %div
+                %i.icon-fire.icon-large
+                %a{:href => "#/si"} #.#
+          %tr
+            %td
+              %h4 FinPort
+          %tr
+            %td
+              %h4 My Profile
+    .span6
+      #feature.hero-unit
+        .row
+          .pull-left
+            %a#prev_article{:href => "#back"} « Back
+          .pull-right
+            %a#next_article{:href => "#next"} Next »
+        %h2.headline Article Headline
+        .source
+          %a{:href => "#"} article_source.com
+        .mute
+          By Editorial Staff | Mar. 11, 2012, 7:00pm PT
+        %br/
+        .row
+          %ul.thumbnails{:style => "margin-left: 0; padding-left: 0;"}
+            %li.span3
+              %a.thumbnail{:href => "#"}
+                %img{:alt => "", :src => "http://placehold.it/260x180"}
+        .row
+          .span3
+            %ul
+              %li
+                %button.btn.btn-success{:href => "#"}
+                  %i.icon-arrow-up>
+                  good
+              %li
+                %button.btn.btn-info{:href => "#"}
+                  %i.icon-arrow-left>
+                  keep
+              %li
+                %button.btn.btn-danger{:href => "#"}
+                  %i.icon-arrow-down>
+                  kick
+        %br/
+        .feature-text
+          %span
+            Bacon ipsum dolor sit amet cow tail pork loin, turkey t-bone short ribs chicken. Andouille shankle corned beef, pork chop short loin jowl pork jerky filet mignon beef ribs pastrami. Sausage salami swine shoulder, ground round pork chop venison strip steak short loin pork belly corned beef tail. Tenderloin pork belly ham brisket pastrami ribeye. Filet mignon bacon shank meatball kielbasa.
+          %br/
+          %a.read-more-link{:href => "#/more"} read more »
+        %br/
+        .read-more-text
+          %span
+            Beef ribs spare ribs sirloin, short loin turducken drumstick ham hock jowl ground round tri-tip. Pork chop beef meatloaf t-bone filet mignon pork belly. Pork brisket spare ribs, meatball t-bone ground round pastrami turducken frankfurter andouille pork chop corned beef ball tip fatback filet mignon. Sausage turducken ham, brisket meatloaf flank ball tip.
+          %br/
+          %a.read-less-link{:href => "#/less"} read less »
+        %br/
+        %ul.feedback
+          %li
+            %a.feedback-ok{:href => "#/ok"}
+              %i.icon-ok
+          %li
+            %a.feedback-remove{:href => "#/remove"}
+              %i.icon-remove
+          %li
+            %a.feedback-comments{:href => "#/comments"}
+              %i.icon-comment
+          %li
+            %a.feedback-tags{:href => "#/tags"}
+              %i.icon-tags
+          %li
+            %a.feedback-save{:href => "#/save"}
+              %i.icon-check
+          %li
+            %a.feedback-share{:href => "#/share"}
+              %i.icon-share
+      / end hero-unit
+    / end span6
+    .span3
+      %table.table.table-bordered
+        %tbody
+          %tr
+            %td
+              .engine
+                %h4 Work
+                %h5 « Article 1 Headline »
+          %tr
+            %td
+              .engine
+                %h4 Life
+                %h5 « Article 2 Headline »
+          %tr
+            %td
+              .engine
+                %h4 Investment
+                %h5 « Article 3 Headline »
+    / end span3
+  / end row
+  .row
+    .span12
+      %hr/
+      %ul
+        %li
+          %strong © 2012 FinPort
+        %li
+          %a{:href => "#/about"} About
+        %li
+          %a{:href => "#/support"} Help
+        %li
+          %a{:href => "#/tos"} Terms
+        %li
+          %a{:href => "#/privacy"} Privacy
+        %li
+          %a{:href => "#/blog"} Blog
+        %li
+          %a{:href => "#/media"} Media
+        %li
+          %a{:href => "#/advertisers"} Advertisers
+        %li
+          %a{:href => "#/jobs"} Jobs
+/ end container
+%div{:style => "display:none;"}
+  #next-page-headline
+    Article 2 Headline
+  #next-page-timestamp
+    By Editorial Staff | March. 15, 2012, 9:00pm PT
+  #next-page-feature-text
+    Pellentesque tincidunt mi quis justo fermentum sed vestibulum mi molestie. Nunc massa arcu, lacinia a feugiat aliquet, fringilla at orci. Maecenas rhoncus dui nisl, pellentesque elementum elit. Fusce id libero ac odio dignissim semper eget sit amet dui. Etiam suscipit varius velit, a accumsan justo faucibus id. Nulla sed urna ac sapien rutrum imperdiet nec quis arcu. Proin dapibus aliquet sem sit amet vestibulum. Nam lorem ante, pharetra et ullamcorper eget, commodo vitae nisl. Mauris euismod, nunc sed porta scelerisque, mauris ligula vulputate enim, nec dapibus risus libero id purus. Praesent orci diam, venenatis et egestas eu, dignissim ac odio. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut vestibulum fringilla magna nec auctor. Ut eget felis at tortor egestas pretium. Aliquam leo elit, rutrum ac pretium eget, porttitor eu nulla.
+  #next-page-more-text
+    In hac habitasse platea dictumst. Cras vehicula, nibh eget auctor porta, purus ipsum iaculis dolor, eu convallis velit felis a lectus. Suspendisse eu volutpat nunc. Fusce ligula magna, vestibulum a vulputate nec, congue sed lacus. Praesent quis lectus augue, id fringilla lectus. Integer ut quam in est adipiscing pharetra in et quam. Duis tempus felis quis sapien aliquet tristique dapibus felis tincidunt. Sed arcu risus, consectetur adipiscing lacinia vitae, volutpat non nisl. Aliquam luctus ornare nunc, sit amet bibendum ligula sodales nec. Nunc bibendum orci ac diam ornare ut sagittis tellus lobortis. Etiam vitae purus purus. Nam eu orci mauris. Praesent interdum magna suscipit neque euismod rutrum. Cras sagittis purus id nulla dignissim a blandit sapien ullamcorper.
+.article

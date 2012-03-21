@@ -30,3 +30,6 @@
 *.sql
 *.sqlite
 
+# Other
+tmp/
+tmp/*
