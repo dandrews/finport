@@ -1,11 +1,12 @@
 ---
 rails.png: rails-782b548cc1ba7f898cdad2d9eb8420d2.png
-application.js: application-9b37aa8dabb5135c61bbe33a49fb3c75.js
+application.js: application-32773ed3589fd3f9a80717af5acaa98d.js
+articles.js: articles-95f0ace38133acd0b2226f2c4181b3f3.js
 bootstrap.js: bootstrap-6db7f8f7ae7eac675e569102ecae135e.js
 home.js: home-95f0ace38133acd0b2226f2c4181b3f3.js
 sessions.js: sessions-95f0ace38133acd0b2226f2c4181b3f3.js
 users.js: users-95f0ace38133acd0b2226f2c4181b3f3.js
-application.css: application-a1a166a00813f8ce9f6c074e39a34001.css
+application.css: application-e4e103a21f9adb2c52984e15faa0dab6.css
 refresh.js: refresh-f897b0cf203aa0307bd2b6e29761f78f.js
 timeago.js: timeago-b3f9c7f2e0c13b248cebc20f3e5157e3.js
 fontawesome-webfont.eot: fontawesome-webfont-eeecec082197cc0255b0c549b4e612ea.eot
