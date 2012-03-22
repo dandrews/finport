@@ -1,0 +1,67 @@
+#feature.hero-unit
+  .row
+    .pull-left
+      = link_to "« Back", news_feed_path(:article_id => @article.previous)
+    .pull-right
+      = link_to "Next »", news_feed_path(:article_id => @article.next)
+  %h2.headline= @article.title
+  .source
+    %a{:href => "#"}= @article.source
+  .mute
+    = @article.published_at
+  %br/
+  .row
+    %ul.thumbnails{:style => "margin-left: 0; padding-left: 0;"}
+      %li.span3
+        %a.thumbnail{:href => "#"}
+          %img{:alt => "", :src => "http://placehold.it/260x180"}
+  .row
+    .span3
+      - if current_user.rated?(@article)
+        = current_user.rating(@article)
+      - else
+        %ul
+          %li
+            = link_to rate_article_path(@article, :rate => :good), :class => "btn btn-success" do
+              %i.icon-arrow-up
+              good
+          %li
+            = link_to rate_article_path(@article, :rate => :keep), :class => "btn btn-info" do
+              %i.icon-arrow-left
+              keep
+          %li
+            = link_to rate_article_path(@article, :rate => :kick), :class => "btn btn-danger" do
+              %i.icon-arrow-left
+              kick
+  %br/
+  .feature-text
+    %span
+      = @article.feature_content
+    %br/
+    %a.read-more-link{:href => "#/more"} read more »
+  %br/
+  .read-more-text
+    %span
+      = @article.read_more_content
+    %br/
+    %a.read-less-link{:href => "#/less"} read less »
+  %br/
+  %ul.feedback
+    %li
+      %a.feedback-ok{:href => "#/ok"}
+        %i.icon-ok
+    %li
+      %a.feedback-remove{:href => "#/remove"}
+        %i.icon-remove
+    %li
+      %a.feedback-comments{:href => "#/comments"}
+        %i.icon-comment
+    %li
+      %a.feedback-tags{:href => "#/tags"}
+        %i.icon-tags
+    %li
+      %a.feedback-save{:href => "#/save"}
+        %i.icon-check
+    %li
+      %a.feedback-share{:href => "#/share"}
+        %i.icon-share

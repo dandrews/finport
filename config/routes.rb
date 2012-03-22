@@ -1,5 +1,13 @@
 Listrhino::Application.routes.draw do
 
+  resources :articles do
+    member do
+      get :rate
+      get :next
+      get :previous
+    end
+  end
+
   root :to => "home#index"
   match "/home/alt_index" => "home#alt_index"
   match "news_feed" => "home#news_feed"

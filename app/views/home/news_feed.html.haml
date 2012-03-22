@@ -46,73 +46,13 @@
           %tr
             %td
               %h4 My Profile
+              %br
+              %p= "Likes: #{current_user.likes.count}"
+              %p= "Dislikes: #{current_user.dislikes.count}"
+              %p= "Kept: #{current_user.keeps.count}"
     .span6
-      #feature.hero-unit
-        .row
-          .pull-left
-            %a#prev_article{:href => "#back"} « Back
-          .pull-right
-            %a#next_article{:href => "#next"} Next »
-        %h2.headline Article Headline
-        .source
-          %a{:href => "#"} article_source.com
-        .mute
-          By Editorial Staff | Mar. 11, 2012, 7:00pm PT
-        %br/
-        .row
-          %ul.thumbnails{:style => "margin-left: 0; padding-left: 0;"}
-            %li.span3
-              %a.thumbnail{:href => "#"}
-                %img{:alt => "", :src => "http://placehold.it/260x180"}
-        .row
-          .span3
-            %ul
-              %li
-                %button.btn.btn-success{:href => "#"}
-                  %i.icon-arrow-up>
-                  good
-              %li
-                %button.btn.btn-info{:href => "#"}
-                  %i.icon-arrow-left>
-                  keep
-              %li
-                %button.btn.btn-danger{:href => "#"}
-                  %i.icon-arrow-down>
-                  kick
-        %br/
-        .feature-text
-          %span
-            Bacon ipsum dolor sit amet cow tail pork loin, turkey t-bone short ribs chicken. Andouille shankle corned beef, pork chop short loin jowl pork jerky filet mignon beef ribs pastrami. Sausage salami swine shoulder, ground round pork chop venison strip steak short loin pork belly corned beef tail. Tenderloin pork belly ham brisket pastrami ribeye. Filet mignon bacon shank meatball kielbasa.
-          %br/
-          %a.read-more-link{:href => "#/more"} read more »
-        %br/
-        .read-more-text
-          %span
-            Beef ribs spare ribs sirloin, short loin turducken drumstick ham hock jowl ground round tri-tip. Pork chop beef meatloaf t-bone filet mignon pork belly. Pork brisket spare ribs, meatball t-bone ground round pastrami turducken frankfurter andouille pork chop corned beef ball tip fatback filet mignon. Sausage turducken ham, brisket meatloaf flank ball tip.
-          %br/
-          %a.read-less-link{:href => "#/less"} read less »
-        %br/
-        %ul.feedback
-          %li
-            %a.feedback-ok{:href => "#/ok"}
-              %i.icon-ok
-          %li
-            %a.feedback-remove{:href => "#/remove"}
-              %i.icon-remove
-          %li
-            %a.feedback-comments{:href => "#/comments"}
-              %i.icon-comment
-          %li
-            %a.feedback-tags{:href => "#/tags"}
-              %i.icon-tags
-          %li
-            %a.feedback-save{:href => "#/save"}
-              %i.icon-check
-          %li
-            %a.feedback-share{:href => "#/share"}
-              %i.icon-share
-      / end hero-unit
-    / end span6
+      = render :partial => "feature"
+
     .span3
       %table.table.table-bordered
         %tbody
