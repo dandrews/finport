@@ -36,3 +36,5 @@ db/*.sqlite3
 tmp/
 tmp/*
 heroku.yml
+*.DS_Store
+*.sublime-*
