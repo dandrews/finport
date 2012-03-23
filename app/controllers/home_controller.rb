@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @email = Email.new
     render :layout => 'finport'
   end
 
@@ -17,5 +18,17 @@ class HomeController < ApplicationController
   end
 
   def ofeedia
+  end
+
+  def sign_up
+    @email = Email.new(params[:email])
+
+    if @email.save
+      flash[:notice] = "Successfully subscribed to the mailing list!"
+    else
+      flash[:notice] = "Sorry, there was an error with your e-mail address."
+    end
+
+    redirect_to root_url
   end
 end
