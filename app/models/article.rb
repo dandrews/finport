@@ -32,4 +32,13 @@ class Article < ActiveRecord::Base
       articles.last
     end
   end
+
+  def self.create_articles
+    rss = SimpleRSS.parse open('http://news.yahoo.com/rss/personal-finance')
+    rss.items.each do |item|
+      link_url = item.link
+      doc = Pismo::Document.new(link_url)
+      Article.create(title: doc.title, content: doc.body, written_date: doc.datetime, source: link_url)
+    end
+  end
 end
