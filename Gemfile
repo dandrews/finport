@@ -6,7 +6,6 @@ gem 'pismo'
 gem 'simple-rss'
 gem 'twitter-bootstrap-rails'
 gem 'font-awesome-rails'
-gem 'newrelic_rpm'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -18,6 +17,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'newrelic_rpm'
 end
 
 # Gems used only for assets and not required
