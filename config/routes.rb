@@ -1,4 +1,10 @@
 Listrhino::Application.routes.draw do
+  
+  root :to => "home#index"
+
+  resources :feeds
+  resources :users
+  resources :sessions
 
   resources :articles do
     member do
@@ -8,7 +14,6 @@ Listrhino::Application.routes.draw do
     end
   end
 
-  root :to => "home#index"
   match "/home/alt_index" => "home#alt_index"
   match "news_feed" => "home#news_feed"
   match "/home/ofeedia" => "home#ofeedia"
@@ -16,7 +21,5 @@ Listrhino::Application.routes.draw do
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
-  resources :users
-  resources :sessions
 
 end
