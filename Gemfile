@@ -4,6 +4,9 @@ gem 'rails', '3.2.1'
 gem 'haml'
 gem 'pismo'
 gem 'simple-rss'
+gem 'twitter-bootstrap-rails'
+gem 'font-awesome-rails'
+gem 'newrelic_rpm'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -29,10 +32,6 @@ gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
-
-gem 'twitter-bootstrap-rails'
-
-gem "font-awesome-rails"
 
 # Use unicorn as the web server
 # gem 'unicorn'
